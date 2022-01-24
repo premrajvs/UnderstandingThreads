@@ -12,3 +12,10 @@ Type of Thread Pools
 2. Cached Thread pool - Queue is of type Synchronized Queue. It holds only 1 Task at any time. You do not define the thread pool size. It is determined dynamically based on the incoming tasks. Lets say, you get 10 Tasks at the same time, 5 of them takes 10 sec to finish and 5 of them takes 2 sec to finish. Now, at T0 sec, 10 threads are created. At T2 sec, 5 threads are back to idle state. Now, after 60 sec, at T3 sec, these threads will be killed. Lets assume the same scenario where all 10 tasks take 10 sec. Now at T4 sec, if a new task comes, new thread will be created. so total live threads count increases to 11. Ideally, there is a chance, N number of threads will be created for N tasks.
 3. Scheduled Thread Pool - All tasks will be stored in delayed Queue. This queue does not store tasks in fifo model instead based on the scheduled time. You can set the delay at fixed rate or fixed delays
 4. Single Thread pool - Blocking Queue and Single Thread. If you want to ensure tasks are executed sequentially, then we can use this 
+
+# Creating Custom Executor Service
+Standard Implementation : ExecutorService es = Executors.newFixedThreadPool(10);
+1. Understanding Runnable Interface :  The Runnable interface should be implemented by any class whose instances are intended to be executed by a thread. The class must define a method of no arguments called run. 
+2. Let's create a CustomExecutorService
+ExecutorService extends Extender interface and it has only 1 method - execute
+This method executes the given command at some time in the future.  The command may execute in a new thread, in a pooled thread, or in the calling thread, at the discretion of the {@code Executor} implementation.
