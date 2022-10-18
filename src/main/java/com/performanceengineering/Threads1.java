@@ -1,14 +1,16 @@
 package com.performanceengineering;
-
+// Line 2 developer 1 Only change
 public class Threads1 {
-// Line 4 developer 2 change
+// Line 4 developer 2 change : Merge conflict resolved by keeping developer 2 change in same line
+// Line 4 developer 1 change : and adding developer 1 change in next line
+
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
             Thread t1 = new Thread(new Task());
             t1.start();
         }
     }
-
+// Line 11 developer 1 Only change
 }
 
 class Task implements Runnable {
