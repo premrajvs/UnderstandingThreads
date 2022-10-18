@@ -20,4 +20,5 @@ class Task implements Runnable {
     }
 
 }
-//Developer 1 making a change in line 23
+//Developer 1 making a change in line 23 : To resolve merge conflict, I am keeping my change in line 23
+//developer 2 making a change in line 23 : To resolve merge conflict, I am keeping developer 2 change to line 24
